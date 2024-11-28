@@ -1,4 +1,4 @@
-import { products } from '@/data/products.json';
+import { products } from '@/data/products';
 import { ProductDetails } from '@/components/ProductDetails';
 
 export function generateStaticParams() {

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ProductCard } from '@/components/ProductCard';
-import { products } from '@/data/products.json';
+import { products } from '@/data/products';
 import { Slider } from '@/components/ui/slider';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';

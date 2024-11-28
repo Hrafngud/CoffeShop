@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useCartStore } from '@/lib/store';
-import { products } from '@/data/products.json';
+import { products } from '@/data/products';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
 import { toast } from 'sonner';

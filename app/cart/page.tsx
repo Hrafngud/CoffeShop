@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useCartStore } from '@/lib/store';
 import { CartItem } from '@/components/CartItem';
 import { Button } from '@/components/ui/button';
-import { products } from '@/data/products.json';
+import { products } from '@/data/products';
 import { ShoppingBag } from 'lucide-react';
 import { useLanguage } from '@/lib/language-provider';
 import { ProductCardProps } from '@/types/product';
