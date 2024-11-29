@@ -21,12 +21,12 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <div className="container mx-auto flex min-h-[50vh] flex-col items-center justify-center px-4 py-8">
-        <ShoppingBag className="h-16 w-16 text-gray-400" />
-        <h2 className="mt-4 text-2xl font-semibold text-gray-900">
+      <div className="container mx-auto flex min-h-[50vh] flex-col items-center justify-center px-4 py-8 text-center">
+        <ShoppingBag className="h-12 w-12 sm:h-16 sm:w-16 text-gray-400" />
+        <h2 className="mt-4 text-xl sm:text-2xl font-semibold text-gray-900">
           {t('cart.empty')}
         </h2>
-        <p className="mt-2 text-gray-500">
+        <p className="mt-2 text-sm sm:text-base text-gray-500 max-w-md">
           {t('cart.emptyDesc')}
         </p>
         <Button

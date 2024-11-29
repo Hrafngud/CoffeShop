@@ -21,7 +21,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
   if (!product) return null;
 
   return (
-    <div className="flex items-center gap-4 border-b py-4">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 border-b py-4">
       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md">
         <Image
           src={product.image}
@@ -39,26 +39,31 @@ export function CartItem({ id, quantity }: CartItemProps) {
           ${product.price.toFixed(2)}
         </p>
       </div>
-      <div className="flex items-center gap-2">
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={() => updateQuantity(id, Math.max(0, quantity - 1))}
-        >
-          <Minus className="h-4 w-4" />
-        </Button>
-        <span className="w-8 text-center">{quantity}</span>
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={() => updateQuantity(id, quantity + 1)}
-        >
-          <Plus className="h-4 w-4" />
-        </Button>
+      <div className="flex flex-row sm:flex-col items-center gap-2 w-full sm:w-auto mt-4 sm:mt-0">
+        <div className="flex items-center gap-2 flex-1 sm:flex-auto">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => updateQuantity(id, Math.max(0, quantity - 1))}
+            className="h-8 w-8"
+          >
+            <Minus className="h-4 w-4" />
+          </Button>
+          <span className="w-8 text-center">{quantity}</span>
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => updateQuantity(id, quantity + 1)}
+            className="h-8 w-8"
+          >
+            <Plus className="h-4 w-4" />
+          </Button>
+        </div>
         <Button
           variant="destructive"
           size="icon"
           onClick={() => removeItem(id)}
+          className="h-8 w-8"
         >
           <Trash2 className="h-4 w-4" />
         </Button>

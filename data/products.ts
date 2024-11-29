@@ -33,6 +33,7 @@ export const products: ProductCardProps[] = [
     },
     category: "Blend",
     price: 19.99,
+    originalPrice: 24.99,
     description: {
       en: "Rich and full-bodied blend perfect for espresso. Notes of dark chocolate and caramel.",
       pt: "Blend encorpado e rico, perfeito para espresso. Notas de chocolate amargo e caramelo."

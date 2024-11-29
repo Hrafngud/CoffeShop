@@ -6,6 +6,7 @@ import { ShoppingBag, Coffee, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/lib/store';
 import { useLanguage } from '@/lib/language-provider';
+import { MobileMenu } from './MobileMenu';
 
 export function Header() {
   const router = useRouter();
@@ -14,23 +15,42 @@ export function Header() {
   
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
 
+  const languageFlag = language === 'en' ? '🇧🇷' : '🇺🇸';
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center space-x-2">
-          <Coffee className="h-6 w-6 text-[#FF8000]" />
-          <span className="font-della text-xl font-bold">{t('header.title')}</span>
-        </Link>
+        <div className="flex items-center">
+          <MobileMenu />
+          <Link href="/" className="flex items-center space-x-2">
+            <Coffee className="h-6 w-6 text-[#FF8000]" />
+            <span className="font-della text-xl font-bold">{t('header.title')}</span>
+          </Link>
+          <nav className="ml-6 hidden space-x-6 md:flex">
+            <Link 
+              href="/about" 
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              {t('header.about')}
+            </Link>
+            <Link 
+              href="/contact" 
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              {t('header.contact')}
+            </Link>
+          </nav>
+        </div>
 
         <div className="flex items-center space-x-4">
           <Button
             variant="ghost"
             size="icon"
             onClick={toggleLanguage}
-            className="text-[#47C7FC]"
+            className="h-8 w-8 hover:bg-gray-100"
+            title={`Change to ${language === 'en' ? 'Portuguese' : 'English'}`}
           >
-            <Globe className="h-5 w-5" />
-            <span className="ml-2 text-sm">{language.toUpperCase()}</span>
+            <span className="text-lg">{languageFlag}</span>
           </Button>
 
           <Button

@@ -1,6 +1,8 @@
 export type TranslationKey =
   | 'header.title'
   | 'header.cart'
+  | 'header.about'
+  | 'header.contact'
   | 'home.title'
   | 'home.filters.category'
   | 'home.filters.categoryAll'
@@ -33,7 +35,7 @@ export type TranslationKey =
   | 'cart.checkout'
   | 'checkout.title'
   | 'checkout.orderSummary'
-  | 'checkout.scanQR'
+  | 'checkout.scanQRTitle'
   | 'checkout.complete'
   | 'checkout.success'
   | 'checkout.successDesc'
@@ -58,7 +60,80 @@ export type TranslationKey =
   | 'product.details.category'
   | 'product.details.stock'
   | 'product.details.inStock'
-  | 'product.details.outOfStock';
+  | 'product.details.outOfStock'
+  | 'home.filters.search'
+  | 'home.filters.searchPlaceholder'
+  | 'checkout.deliveryAddress'
+  | 'checkout.billingAddress'
+  | 'checkout.paymentInfo'
+  | 'checkout.sameAsDelivery'
+  | 'checkout.street'
+  | 'checkout.city'
+  | 'checkout.state'
+  | 'checkout.zipCode'
+  | 'checkout.country'
+  | 'checkout.cardHolder'
+  | 'checkout.cardNumber'
+  | 'checkout.expiryDate'
+  | 'checkout.cvv'
+  | 'checkout.submitOrder'
+  | 'checkout.paymentMethod'
+  | 'checkout.selectPayment'
+  | 'checkout.paymentTypes.card'
+  | 'checkout.paymentTypes.pix'
+  | 'checkout.paymentTypes.bankTransfer'
+  | 'checkout.scanQRButton'
+  | 'checkout.pixInstructions'
+  | 'checkout.bankTransferDetails'
+  | 'checkout.bankName'
+  | 'checkout.accountHolder'
+  | 'checkout.accountNumber'
+  | 'checkout.routingNumber'
+  | 'checkout.qrCodeTitle'
+  | 'hero.title'
+  | 'hero.description'
+  | 'hero.shopNow'
+  | 'hero.learnMore'
+  | 'about.title'
+  | 'about.mission.title'
+  | 'about.mission.description'
+  | 'about.history.title'
+  | 'about.history.part1'
+  | 'about.history.part2'
+  | 'about.values.quality.title'
+  | 'about.values.quality.description'
+  | 'about.values.sustainability.title'
+  | 'about.values.sustainability.description'
+  | 'about.values.community.title'
+  | 'about.values.community.description'
+  | 'hero.viewProduct'
+  | 'footer.description'
+  | 'footer.quickLinks'
+  | 'footer.contact'
+  | 'footer.privacy'
+  | 'footer.terms'
+  | 'footer.followUs'
+  | 'footer.address'
+  | 'footer.phone'
+  | 'footer.rights'
+  | 'contact.title'
+  | 'contact.getInTouch'
+  | 'contact.description'
+  | 'contact.sendMessage'
+  | 'contact.name'
+  | 'contact.email'
+  | 'contact.subject'
+  | 'contact.message'
+  | 'contact.send'
+  | 'contact.businessHours'
+  | 'contact.weekdays'
+  | 'contact.weekends'
+  | 'contact.messageSent'
+  | 'contact.messageSentDesc'
+  | 'home.filters.showAdvanced'
+  | 'home.filters.hideAdvanced'
+  | 'home.filters.more'
+  | 'home.filters.less';
 
 type TranslationsType = {
   [lang in 'en' | 'pt']: {
@@ -68,25 +143,24 @@ type TranslationsType = {
 
 export const translations: TranslationsType = {
   en: {
-    // Header
     'header.title': 'Gourmet Coffee',
     'header.cart': 'Cart',
-
-    // Home Page
+    'header.about': 'About Us',
+    'header.contact': 'Contact',
     'home.title': 'Gourmet Coffee Selection',
     'home.filters.category': 'Category',
-    'home.filters.categoryAll': 'Todas as Categorias',
+    'home.filters.categoryAll': 'All Categories',
     'home.filters.country': 'Country of Origin',
     'home.filters.countryAll': 'All Countries',
     'home.filters.priceRange': 'Price Range',
     'home.filters.additionalFilters': 'Additional Filters',
-    'home.filters.inStock': 'In Stock Only',
+    'home.filters.inStock': 'In Stock',
     'home.filters.new': 'New Arrivals',
-    'home.filters.promotion': 'On Promotion',
+    'home.filters.promotion': 'Promotion',
     'home.filters.roastLevel': 'Roast Level',
     'home.filters.roastLevelAll': 'All Roast Levels',
-
-    // Product Details
+    'home.filters.search': 'Search Products',
+    'home.filters.searchPlaceholder': 'Search by product name...',
     'product.addToCart': 'Add to Cart',
     'product.back': 'Back',
     'product.category': 'Category',
@@ -111,8 +185,6 @@ export const translations: TranslationsType = {
     'product.details.stock': 'Stock',
     'product.details.inStock': 'In Stock',
     'product.details.outOfStock': 'Out of Stock',
-
-    // Cart
     'cart.title': 'Shopping Cart',
     'cart.empty': 'Your cart is empty',
     'cart.emptyDesc': 'Add some delicious coffee to your cart!',
@@ -120,16 +192,39 @@ export const translations: TranslationsType = {
     'cart.summary': 'Order Summary',
     'cart.total': 'Total',
     'cart.checkout': 'Proceed to Checkout',
-
-    // Checkout
     'checkout.title': 'Checkout',
     'checkout.orderSummary': 'Order Summary',
-    'checkout.scanQR': 'Scan QR Code to Pay',
+    'checkout.scanQRTitle': 'Scan QR Code to Pay',
     'checkout.complete': 'Complete Order',
     'checkout.success': 'Order completed!',
     'checkout.successDesc': 'Thank you for your purchase.',
-
-    // Common
+    'checkout.deliveryAddress': 'Delivery Address',
+    'checkout.billingAddress': 'Billing Address',
+    'checkout.paymentInfo': 'Payment Information',
+    'checkout.sameAsDelivery': 'Same as delivery address',
+    'checkout.street': 'Street Address',
+    'checkout.city': 'City',
+    'checkout.state': 'State',
+    'checkout.zipCode': 'ZIP Code',
+    'checkout.country': 'Country',
+    'checkout.cardHolder': 'Card Holder Name',
+    'checkout.cardNumber': 'Card Number',
+    'checkout.expiryDate': 'MM/YY',
+    'checkout.cvv': 'CVV',
+    'checkout.submitOrder': 'Complete Order',
+    'checkout.paymentMethod': 'Payment Method',
+    'checkout.selectPayment': 'Select payment method',
+    'checkout.paymentTypes.card': 'Credit/Debit Card',
+    'checkout.paymentTypes.pix': 'PIX',
+    'checkout.paymentTypes.bankTransfer': 'Bank Transfer',
+    'checkout.scanQRButton': 'Scan QR Code',
+    'checkout.pixInstructions': 'Scan the QR code with your bank app to complete the payment',
+    'checkout.bankTransferDetails': 'Bank Transfer Details',
+    'checkout.bankName': 'Bank Name',
+    'checkout.accountHolder': 'Account Holder',
+    'checkout.accountNumber': 'Account Number',
+    'checkout.routingNumber': 'Routing Number',
+    'checkout.qrCodeTitle': 'Scan QR Code to Pay',
     'common.previous': 'Previous',
     'common.next': 'Next',
     'common.morePages': 'More pages',
@@ -139,13 +234,56 @@ export const translations: TranslationsType = {
     'common.loading': 'Loading...',
     'common.error': 'Error',
     'common.success': 'Success',
+    'hero.title': 'Discover Premium Coffee Experience',
+    'hero.description': 'Explore our carefully curated selection of premium coffee beans from around the world. From light to dark roasts, find your perfect cup.',
+    'hero.shopNow': 'Shop Now',
+    'hero.learnMore': 'Learn More',
+    'about.title': 'About Our Coffee Shop',
+    'about.mission.title': 'Our Mission',
+    'about.mission.description': 'To provide the finest coffee experience through carefully sourced beans, expert roasting, and passionate service.',
+    'about.history.title': 'Our Story',
+    'about.history.part1': 'Founded in 2010, our journey began with a simple passion for exceptional coffee and a dream to share it with others.',
+    'about.history.part2': 'Over the years, we have grown from a small local roastery to a beloved destination for coffee enthusiasts, while maintaining our commitment to quality and craftsmanship.',
+    'about.values.quality.title': 'Quality First',
+    'about.values.quality.description': 'We source only the finest coffee beans and maintain strict quality control throughout our roasting process.',
+    'about.values.sustainability.title': 'Sustainability',
+    'about.values.sustainability.description': 'We are committed to environmentally responsible practices and supporting sustainable farming communities.',
+    'about.values.community.title': 'Community',
+    'about.values.community.description': 'We believe in building lasting relationships with our customers, suppliers, and local community.',
+    'hero.viewProduct': 'View Product',
+    'footer.description': 'Providing premium coffee experiences since 2010. Quality beans, expert roasting, passionate service.',
+    'footer.quickLinks': 'Quick Links',
+    'footer.contact': 'Contact',
+    'footer.privacy': 'Privacy Policy',
+    'footer.terms': 'Terms of Service',
+    'footer.followUs': 'Follow Us',
+    'footer.address': '123 Coffee Street, Brew City, BC 12345',
+    'footer.phone': 'Phone',
+    'footer.rights': 'All rights reserved.',
+    'contact.title': 'Contact Us',
+    'contact.getInTouch': 'Get in Touch',
+    'contact.description': 'Have questions about our products or services? We\'d love to hear from you. Send us a message and we\'ll respond as soon as possible.',
+    'contact.sendMessage': 'Send us a Message',
+    'contact.name': 'Your Name',
+    'contact.email': 'Email Address',
+    'contact.subject': 'Subject',
+    'contact.message': 'Message',
+    'contact.send': 'Send Message',
+    'contact.businessHours': 'Business Hours',
+    'contact.weekdays': 'Monday - Friday',
+    'contact.weekends': 'Saturday - Sunday',
+    'contact.messageSent': 'Message Sent',
+    'contact.messageSentDesc': 'Thank you for your message. We\'ll get back to you soon!',
+    'home.filters.showAdvanced': 'Show Advanced Filters',
+    'home.filters.hideAdvanced': 'Hide Advanced Filters',
+    'home.filters.more': 'More Filters',
+    'home.filters.less': 'Less Filters'
   },
   pt: {
-    // Header
     'header.title': 'Café Gourmet',
     'header.cart': 'Carrinho',
-
-    // Home Page
+    'header.about': 'Sobre Nós',
+    'header.contact': 'Contato',
     'home.title': 'Seleção de Café Gourmet',
     'home.filters.category': 'Categoria',
     'home.filters.categoryAll': 'Todas as Categorias',
@@ -153,13 +291,13 @@ export const translations: TranslationsType = {
     'home.filters.countryAll': 'Todos os Países',
     'home.filters.priceRange': 'Faixa de Preço',
     'home.filters.additionalFilters': 'Filtros Adicionais',
-    'home.filters.inStock': 'Apenas em Estoque',
+    'home.filters.inStock': 'Em Estoque',
     'home.filters.new': 'Novidades',
-    'home.filters.promotion': 'Em Promoção',
+    'home.filters.promotion': 'Promoção',
     'home.filters.roastLevel': 'Nível de Torra',
     'home.filters.roastLevelAll': 'Todos os Níveis',
-
-    // Product Details
+    'home.filters.search': 'Buscar Produtos',
+    'home.filters.searchPlaceholder': 'Buscar por nome do produto...',
     'product.addToCart': 'Adc. ao Carrinho',
     'product.back': 'Voltar',
     'product.category': 'Categoria',
@@ -184,8 +322,6 @@ export const translations: TranslationsType = {
     'product.details.stock': 'Estoque',
     'product.details.inStock': 'Em Estoque',
     'product.details.outOfStock': 'Fora de Estoque',
-
-    // Cart
     'cart.title': 'Carrinho de Compras',
     'cart.empty': 'Seu carrinho está vazio',
     'cart.emptyDesc': 'Adicione alguns cafés deliciosos ao seu carrinho!',
@@ -193,16 +329,39 @@ export const translations: TranslationsType = {
     'cart.summary': 'Resumo do Pedido',
     'cart.total': 'Total',
     'cart.checkout': 'Finalizar Compra',
-
-    // Checkout
     'checkout.title': 'Finalizar Pedido',
     'checkout.orderSummary': 'Resumo do Pedido',
-    'checkout.scanQR': 'Escaneie o QR Code para Pagar',
+    'checkout.scanQRTitle': 'Escaneie o QR Code para Pagar',
     'checkout.complete': 'Completar Pedido',
     'checkout.success': 'Pedido concluído!',
     'checkout.successDesc': 'Obrigado pela sua compra.',
-
-    // Common
+    'checkout.deliveryAddress': 'Endereço de Entrega',
+    'checkout.billingAddress': 'Endereço de Cobrança',
+    'checkout.paymentInfo': 'Informações de Pagamento',
+    'checkout.sameAsDelivery': 'Mesmo endereço de entrega',
+    'checkout.street': 'Endereço',
+    'checkout.city': 'Cidade',
+    'checkout.state': 'Estado',
+    'checkout.zipCode': 'CEP',
+    'checkout.country': 'País',
+    'checkout.cardHolder': 'Nome do Titular do Cartão',
+    'checkout.cardNumber': 'Número do Cartão',
+    'checkout.expiryDate': 'MM/AA',
+    'checkout.cvv': 'CVV',
+    'checkout.submitOrder': 'Finalizar Pedido',
+    'checkout.paymentMethod': 'Método de Pagamento',
+    'checkout.selectPayment': 'Selecione o método de pagamento',
+    'checkout.paymentTypes.card': 'Cartão de Crédito/Débito',
+    'checkout.paymentTypes.pix': 'PIX',
+    'checkout.paymentTypes.bankTransfer': 'Transferência Bancária',
+    'checkout.scanQRButton': 'Escaneie o QR Code',
+    'checkout.pixInstructions': 'Escaneie o QR code com seu aplicativo bancário para concluir o pagamento',
+    'checkout.bankTransferDetails': 'Dados Bancários',
+    'checkout.bankName': 'Banco',
+    'checkout.accountHolder': 'Titular da Conta',
+    'checkout.accountNumber': 'Número da Conta',
+    'checkout.routingNumber': 'Agência',
+    'checkout.qrCodeTitle': 'Escaneie o QR Code para Pagar',
     'common.previous': 'Anterior',
     'common.next': 'Próximo',
     'common.morePages': 'Mais páginas',
@@ -212,5 +371,49 @@ export const translations: TranslationsType = {
     'common.loading': 'Carregando...',
     'common.error': 'Erro',
     'common.success': 'Sucesso',
+    'hero.title': 'Descubra a Experiência do Café Premium',
+    'hero.description': 'Explore nossa seleção cuidadosamente selecionada de grãos de café premium de todo o mundo. De torras claras a escuras, encontre sua xícara perfeita.',
+    'hero.shopNow': 'Comprar Agora',
+    'hero.learnMore': 'Saiba Mais',
+    'about.title': 'Sobre Nossa Cafeteria',
+    'about.mission.title': 'Nossa Missão',
+    'about.mission.description': 'Proporcionar a melhor experiência em café através de grãos cuidadosamente selecionados, torra especializada e serviço apaixonado.',
+    'about.history.title': 'Nossa História',
+    'about.history.part1': 'Fundada em 2010, nossa jornada começou com uma simples paixão por café excepcional e um sonho de compartilhá-lo com outros.',
+    'about.history.part2': 'Ao longo dos anos, crescemos de uma pequena torrefação local para um destino querido por entusiastas do café, mantendo nosso compromisso com qualidade e artesanato.',
+    'about.values.quality.title': 'Qualidade em Primeiro Lugar',
+    'about.values.quality.description': 'Selecionamos apenas os melhores grãos de café e mantemos um controle rigoroso de qualidade em todo nosso processo de torra.',
+    'about.values.sustainability.title': 'Sustentabilidade',
+    'about.values.sustainability.description': 'Estamos comprometidos com práticas ambientalmente responsáveis e apoio às comunidades agrícolas sustentáveis.',
+    'about.values.community.title': 'Comunidade',
+    'about.values.community.description': 'Acreditamos em construir relacionamentos duradouros com nossos clientes, fornecedores e comunidade local.',
+    'hero.viewProduct': 'Ver Produto',
+    'footer.description': 'Proporcionando experiências premium em café desde 2010. Grãos de qualidade, torra especializada, serviço apaixonado.',
+    'footer.quickLinks': 'Links Rápidos',
+    'footer.contact': 'Contato',
+    'footer.privacy': 'Política de Privacidade',
+    'footer.terms': 'Termos de Serviço',
+    'footer.followUs': 'Siga-nos',
+    'footer.address': 'Rua do Café, 123, Cidade do Café, BC 12345',
+    'footer.phone': 'Telefone',
+    'footer.rights': 'Todos os direitos reservados.',
+    'contact.title': 'Contato',
+    'contact.getInTouch': 'Entre em Contato',
+    'contact.description': 'Tem perguntas sobre nossos produtos ou serviços? Adoraríamos ouvir você. Envie-nos uma mensagem e responderemos o mais breve possível.',
+    'contact.sendMessage': 'Envie uma Mensagem',
+    'contact.name': 'Seu Nome',
+    'contact.email': 'Endereço de Email',
+    'contact.subject': 'Assunto',
+    'contact.message': 'Mensagem',
+    'contact.send': 'Enviar Mensagem',
+    'contact.businessHours': 'Horário de Funcionamento',
+    'contact.weekdays': 'Segunda - Sexta',
+    'contact.weekends': 'Sábado - Domingo',
+    'contact.messageSent': 'Mensagem Enviada',
+    'contact.messageSentDesc': 'Obrigado pela sua mensagem. Retornaremos em breve!',
+    'home.filters.showAdvanced': 'Mostrar Filtros Avançados',
+    'home.filters.hideAdvanced': 'Esconder Filtros Avançados',
+    'home.filters.more': 'Mais Filtros',
+    'home.filters.less': 'Menos Filtros'
   }
 }; 

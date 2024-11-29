@@ -9,6 +9,7 @@ export type ProductCardProps = {
     pt: string;
   };
   price: number;
+  originalPrice?: number;
   image: string;
   description: {
     en: string;

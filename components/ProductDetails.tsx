@@ -9,6 +9,7 @@ import { ArrowLeft, ShoppingCart } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLanguage } from '@/lib/language-provider';
 import { ProductCardProps } from '@/types/product';
+import { PriceDisplay } from '@/components/PriceDisplay';
 
 type ProductDetailsProps = {
   product: ProductCardProps;
@@ -89,10 +90,15 @@ export function ProductDetails({ product }: ProductDetailsProps) {
             </div>
           </div>
 
+          <div className="mt-8 flex items-center gap-4">
+            <PriceDisplay 
+              price={product.price}
+              originalPrice={product.onPromotion ? product.originalPrice : undefined}
+              className="text-2xl"
+            />
+          </div>
+
           <div className="mt-8 flex items-center justify-between">
-            <span className="text-2xl font-bold text-gray-900">
-              ${product.price.toFixed(2)}
-            </span>
             <Button
               onClick={handleAddToCart}
               className="bg-[#FF8000] hover:bg-[#FF8000]/90"

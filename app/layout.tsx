@@ -4,6 +4,7 @@ import { Della_Respira, Open_Sans } from 'next/font/google';
 import { Header } from '@/components/Header';
 import { Toaster } from '@/components/ui/sonner';
 import { LanguageProvider } from '@/lib/language-provider';
+import { Footer } from '@/components/Footer';
 
 const dellaRespira = Della_Respira({
   weight: '400',
@@ -30,10 +31,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${dellaRespira.variable} ${openSans.variable}`}>
-      <body className="font-sans">
+      <body className="flex min-h-screen flex-col font-sans">
         <LanguageProvider>
           <Header />
           {children}
+          <Footer />
           <Toaster />
         </LanguageProvider>
       </body>

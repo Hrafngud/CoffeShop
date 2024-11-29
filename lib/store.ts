@@ -8,7 +8,7 @@ export type CartItem = {
 
 type CartStore = {
   items: CartItem[];
-  addItem: (id: string) => void;
+  addItem: (id: string, quantity?: number) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
@@ -18,19 +18,19 @@ export const useCartStore = create<CartStore>()(
   persist(
     (set) => ({
       items: [],
-      addItem: (id) =>
+      addItem: (id, quantity = 1) =>
         set((state) => {
           const existingItem = state.items.find((item) => item.id === id);
           if (existingItem) {
             return {
               items: state.items.map((item) =>
                 item.id === id
-                  ? { ...item, quantity: item.quantity + 1 }
+                  ? { ...item, quantity: item.quantity + quantity }
                   : item
               ),
             };
           }
-          return { items: [...state.items, { id, quantity: 1 }] };
+          return { items: [...state.items, { id, quantity }] };
         }),
       removeItem: (id) =>
         set((state) => ({
