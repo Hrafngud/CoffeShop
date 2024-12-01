@@ -4,6 +4,10 @@ export type AddressInfo = {
   state: string;
   zipCode: string;
   country: string;
+  name: string;
+  email: string;
+  phone: string;
+  whatsappUpdates: boolean;
 };
 
 export type BillingInfo = {

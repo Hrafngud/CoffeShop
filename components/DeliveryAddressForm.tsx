@@ -1,50 +1,80 @@
 import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
 import { AddressInfo } from "@/types/checkout";
 import { useLanguage } from "@/lib/language-provider";
 
 type DeliveryAddressFormProps = {
-  data: AddressInfo;
-  onChange: (field: keyof AddressInfo, value: string) => void;
+  addressData: AddressInfo;
+  onAddressChange: (field: keyof AddressInfo, value: string | boolean) => void;
 };
 
-export function DeliveryAddressForm({ data, onChange }: DeliveryAddressFormProps) {
+export function DeliveryAddressForm({
+  addressData,
+  onAddressChange,
+}: DeliveryAddressFormProps) {
   const { t } = useLanguage();
 
   return (
-    <div>
-      <h3 className="text-lg font-semibold">{t('checkout.deliveryAddress')}</h3>
-      <div className="mt-4 grid gap-4">
+    <div className="space-y-4">
+      <h2 className="text-xl font-semibold">{t('checkout.deliveryAddress')}</h2>
+      
+      <div className="grid gap-4">
+        <Input
+          placeholder={t('checkout.name')}
+          value={addressData.name}
+          onChange={(e) => onAddressChange('name', e.target.value)}
+          required
+        />
+        <Input
+          placeholder={t('checkout.email')}
+          value={addressData.email}
+          onChange={(e) => onAddressChange('email', e.target.value)}
+          required
+        />
+        <Input
+          placeholder={t('checkout.phone')}
+          value={addressData.phone}
+          onChange={(e) => onAddressChange('phone', e.target.value)}
+          required
+        />
+        <label htmlFor="whatsappUpdates">{t('checkout.whatsappUpdates')}</label>
+        <Checkbox
+          checked={addressData.whatsappUpdates}
+          onCheckedChange={(value) => onAddressChange('whatsappUpdates', value)}
+        >
+          {t('checkout.whatsappUpdates')}
+        </Checkbox>
         <Input
           placeholder={t('checkout.street')}
-          value={data.street}
-          onChange={(e) => onChange('street', e.target.value)}
+          value={addressData.street}
+          onChange={(e) => onAddressChange('street', e.target.value)}
           required
         />
         <div className="grid grid-cols-2 gap-4">
           <Input
             placeholder={t('checkout.city')}
-            value={data.city}
-            onChange={(e) => onChange('city', e.target.value)}
+            value={addressData.city}
+            onChange={(e) => onAddressChange('city', e.target.value)}
             required
           />
           <Input
             placeholder={t('checkout.state')}
-            value={data.state}
-            onChange={(e) => onChange('state', e.target.value)}
+            value={addressData.state}
+            onChange={(e) => onAddressChange('state', e.target.value)}
             required
           />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <Input
             placeholder={t('checkout.zipCode')}
-            value={data.zipCode}
-            onChange={(e) => onChange('zipCode', e.target.value)}
+            value={addressData.zipCode}
+            onChange={(e) => onAddressChange('zipCode', e.target.value)}
             required
           />
           <Input
             placeholder={t('checkout.country')}
-            value={data.country}
-            onChange={(e) => onChange('country', e.target.value)}
+            value={addressData.country}
+            onChange={(e) => onAddressChange('country', e.target.value)}
             required
           />
         </div>

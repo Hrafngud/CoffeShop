@@ -22,6 +22,10 @@ export function CheckoutForm({ onSubmit, showCardFields }: CheckoutFormProps) {
       state: "",
       zipCode: "",
       country: "",
+      name: "",
+      email: "",
+      phone: "",
+      whatsappUpdates: false
     },
     billing: {
       street: "",
@@ -30,6 +34,10 @@ export function CheckoutForm({ onSubmit, showCardFields }: CheckoutFormProps) {
       zipCode: "",
       country: "",
       sameAsDelivery: true,
+      name: "",
+      email: "",
+      phone: "",
+      whatsappUpdates: false
     },
     payment: {
       type: "card",
@@ -47,7 +55,7 @@ export function CheckoutForm({ onSubmit, showCardFields }: CheckoutFormProps) {
     onSubmit(formData);
   };
 
-  const updateDeliveryAddress = (field: keyof AddressInfo, value: string) => {
+  const updateDeliveryAddress = (field: keyof AddressInfo, value: string | boolean) => {
     setFormData((prev) => ({
       ...prev,
       delivery: { ...prev.delivery, [field]: value },
@@ -73,16 +81,31 @@ export function CheckoutForm({ onSubmit, showCardFields }: CheckoutFormProps) {
 
   const updatePaymentInfo = (field: keyof BillingInfo, value: string) => {
     setFormData((prev) => {
-      const updatedCardInfo = prev.payment.cardInfo 
-        ? { ...prev.payment.cardInfo, [field]: value }
-        : { cardHolder: "", cardNumber: "", expiryDate: "", cvv: "", [field]: value };
+      if (!prev.payment.cardInfo) {
+        return {
+          ...prev,
+          payment: {
+            ...prev.payment,
+            cardInfo: {
+              cardHolder: "",
+              cardNumber: "",
+              expiryDate: "",
+              cvv: "",
+              [field]: value
+            }
+          }
+        };
+      }
 
       return {
         ...prev,
         payment: {
           ...prev.payment,
-          cardInfo: updatedCardInfo,
-        },
+          cardInfo: {
+            ...prev.payment.cardInfo,
+            [field]: value
+          }
+        }
       };
     });
   };
@@ -90,8 +113,8 @@ export function CheckoutForm({ onSubmit, showCardFields }: CheckoutFormProps) {
   return (
     <form id="checkout-form" onSubmit={handleSubmit} className="space-y-8">
       <DeliveryAddressForm
-        data={formData.delivery}
-        onChange={updateDeliveryAddress}
+        addressData={formData.delivery}
+        onAddressChange={updateDeliveryAddress}
       />
       
       <BillingAddressForm

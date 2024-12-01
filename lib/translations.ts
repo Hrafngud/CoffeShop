@@ -133,7 +133,16 @@ export type TranslationKey =
   | 'home.filters.showAdvanced'
   | 'home.filters.hideAdvanced'
   | 'home.filters.more'
-  | 'home.filters.less';
+  | 'home.filters.less'
+  | 'checkout.name'
+  | 'checkout.email'
+  | 'checkout.phone'
+  | 'checkout.street'
+  | 'checkout.city'
+  | 'checkout.state'
+  | 'checkout.zipCode'
+  | 'checkout.country'
+  | 'checkout.whatsappUpdates';
 
 type TranslationsType = {
   [lang in 'en' | 'pt']: {
@@ -277,7 +286,11 @@ export const translations: TranslationsType = {
     'home.filters.showAdvanced': 'Show Advanced Filters',
     'home.filters.hideAdvanced': 'Hide Advanced Filters',
     'home.filters.more': 'More Filters',
-    'home.filters.less': 'Less Filters'
+    'home.filters.less': 'Less Filters',
+    'checkout.name': 'Full Name',
+    'checkout.email': 'Email Address',
+    'checkout.phone': 'Phone Number',
+    'checkout.whatsappUpdates': 'Would you like to receive delivery updates via WhatsApp?'
   },
   pt: {
     'header.title': 'Café Gourmet',
@@ -414,6 +427,10 @@ export const translations: TranslationsType = {
     'home.filters.showAdvanced': 'Mostrar Filtros Avançados',
     'home.filters.hideAdvanced': 'Esconder Filtros Avançados',
     'home.filters.more': 'Mais Filtros',
-    'home.filters.less': 'Menos Filtros'
+    'home.filters.less': 'Menos Filtros',
+    'checkout.name': 'Nome Completo',
+    'checkout.email': 'Endereço de Email',
+    'checkout.phone': 'Número de Telefone',
+    'checkout.whatsappUpdates': 'Gostaria de receber atualizações de entrega via WhatsApp?'
   }
 }; 
