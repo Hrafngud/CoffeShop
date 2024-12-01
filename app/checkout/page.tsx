@@ -42,10 +42,7 @@ export default function CheckoutPage() {
   const handleCheckout = (data: CheckoutInfo) => {
     console.log('Checkout data:', { ...data, payment: { type: paymentType } });
     clearCart();
-    toast.success(t('checkout.success'), {
-      description: t('checkout.successDesc')
-    });
-    router.push('/');
+    window.location.href = '/confirmation';
   };
 
   if (items.length === 0) return null;
