@@ -33,25 +33,3 @@ Bem-vindo ao repositório do website da nossa cafeteria gourmet! Este projeto fo
 
 - **Gerenciamento de Projeto e Desenvolvimento**:  
   Todo o projeto, incluindo o design do layout, definição de requisitos e implementação do código, foi conduzido por **Nikolas Navarro**, assegurando uma aplicação bem estruturada, visualmente atraente e funcional.
-## 🚀 Como Executar o Projeto
-
-1. Clone este repositório:  
-   ```bash
-   git clone https://github.com/seu-repositorio/cafe-gourmet.git
-   cd cafe-gourmet
-   ```
-2. Instale as dependências:  
-   ```bash
-   npm install
-   ```
-3. Inicie o servidor de desenvolvimento:  
-   ```bash
-   npm run dev
-   ```
-4. Acesse no navegador:  
-   ```text
-   http://localhost:3000
-   ```
-
-
-Desfrute de uma experiência excepcional ao navegar pelo nosso site de cafeteria gourmet! ☕
